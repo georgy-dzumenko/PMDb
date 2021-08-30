@@ -1,4 +1,5 @@
 {
+  "homepage": "http://georgy-dzumenko.github.io/my-app",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -12,13 +13,20 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "classnames": "^2.3.1",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hash-link": "^1.0.1",
+    "react-router-dom": "^5.2.1",
+    "react-router-hash-link": "^2.4.3",
     "react-scripts": "4.0.3",
     "sass": "^1.38.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
