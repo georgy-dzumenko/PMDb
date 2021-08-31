@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/watchlist/static/css/main.cdd690f3.chunk.css",
-    "main.js": "/watchlist/static/js/main.729c0ca0.chunk.js",
-    "main.js.map": "/watchlist/static/js/main.729c0ca0.chunk.js.map",
+    "main.css": "/watchlist/static/css/main.af9bb5b0.chunk.css",
+    "main.js": "/watchlist/static/js/main.1b662822.chunk.js",
+    "main.js.map": "/watchlist/static/js/main.1b662822.chunk.js.map",
     "runtime-main.js": "/watchlist/static/js/runtime-main.5da939a1.js",
     "runtime-main.js.map": "/watchlist/static/js/runtime-main.5da939a1.js.map",
     "static/js/2.97200fec.chunk.js": "/watchlist/static/js/2.97200fec.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.f7e6cab9.chunk.js": "/watchlist/static/js/3.f7e6cab9.chunk.js",
     "static/js/3.f7e6cab9.chunk.js.map": "/watchlist/static/js/3.f7e6cab9.chunk.js.map",
     "index.html": "/watchlist/index.html",
-    "static/css/main.cdd690f3.chunk.css.map": "/watchlist/static/css/main.cdd690f3.chunk.css.map",
+    "static/css/main.af9bb5b0.chunk.css.map": "/watchlist/static/css/main.af9bb5b0.chunk.css.map",
     "static/js/2.97200fec.chunk.js.LICENSE.txt": "/watchlist/static/js/2.97200fec.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/watchlist/static/media/tmdb.caee7457.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.5da939a1.js",
     "static/js/2.97200fec.chunk.js",
-    "static/css/main.cdd690f3.chunk.css",
-    "static/js/main.729c0ca0.chunk.js"
+    "static/css/main.af9bb5b0.chunk.css",
+    "static/js/main.1b662822.chunk.js"
   ]
 }
