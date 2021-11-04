@@ -3,6 +3,7 @@
   margin: 0 auto;
   max-width: 1300px;
   padding: 30px 0;
+  // box-shadow: 0 0 0 500px $c-red;
 
   &__title {
     margin: 0;
@@ -15,6 +16,18 @@
 
     @include onMobile() {
       margin-bottom: 50px;
+    }
+  }
+
+  &__description {
+    padding-left: 7px;
+    border-left: 2px solid $c-gray;
+    overflow-x: hidden;
+    height: max-content;
+
+    @include onMobile() {
+      border: none;
+      padding: 0;
     }
   }
 }

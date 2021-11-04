@@ -13,7 +13,7 @@ export const NavigationSearch = () => {
   const [results, setResluts] = useState([]);
   const [text, setText] = useState("");
 
-  const input = useRef(null)
+  const input = useRef('')
 
   const onSearch = useCallback(debounce((title) => {
     getMoviesByTitle(title).then((data) => setResluts((data || []).slice(0, 7)))
@@ -62,7 +62,7 @@ export const NavigationSearch = () => {
               {
                 results.map(result => (
                   <li key={result.id}>
-                    <Link to={`/movies/${result.id}`} className="navigation__search-result">
+                    <Link to={`/${result.media_type}/${result.id}`} className="navigation__search-result">
                       <img src={getMovieImg(result.poster_path, true)} alt="" className="navigation__search-result-img" />
                       <h2 className="navigation__search-result-title">
                         {result.title}
