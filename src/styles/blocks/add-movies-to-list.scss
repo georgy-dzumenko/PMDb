@@ -1,0 +1,15 @@
+.add-movies-to-list {
+  width: 250%;
+  height: 250%;
+  display: block;
+  position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // object-fit: cover;
+
+  &__container {
+    width: 200%;
+    height: 200%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}

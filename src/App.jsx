@@ -1,5 +1,5 @@
 import './styles/App.scss';
-import { Menu } from './components/Menu';
+import Menu from './components/Menu';
 import { Route, useRouteMatch } from 'react-router-dom'
 import MoviePage from './pages/MoviePage';
 import { Info } from './pages/Info'
@@ -14,6 +14,7 @@ import WatchlistPage from './pages/WatchlistPage';
 import FavoritesPage from './pages/FavoritesPage';
 import ListsPage from './pages/ListsPage';
 import ProfilePage from './pages/ProfilePage';
+import { ConfirmationWindow } from './components/ConfirmationWindow';
 
 function App() {
   const match = useRouteMatch('/:mediaType/:mediaId')
@@ -62,7 +63,8 @@ function App() {
           <ProfilePage/>
         </Route>
       </Switch>
-      
+        
+      <ConfirmationWindow/>
       <LoginWindow/>
       <Menu />
     </div>

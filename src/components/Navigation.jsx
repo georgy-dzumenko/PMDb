@@ -10,7 +10,6 @@ import { connect } from 'react-redux'
 import { getAccInfo, getPersonImg } from './api'
 import { AnimateSharedLayout, motion, useAnimation } from 'framer-motion'
 
-
 import { changeLanguage } from '../redux/actions'
 import { translate } from './translate'
 

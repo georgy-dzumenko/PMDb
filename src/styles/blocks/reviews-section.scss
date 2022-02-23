@@ -1,0 +1,15 @@
+.reviews-section {
+  // overflow-x: hidden;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  border-left: 5px solid  $c-red;
+
+  &__title {
+    display: block;
+    width: max-content;
+    font-size: 50px;
+    // border-top: 5px solid $c-light-red;
+    // border-radius: 0 5px 0 0;
+  }
+}

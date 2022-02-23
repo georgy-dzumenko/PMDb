@@ -1,19 +1,95 @@
 .lists-page {
-  &__title {
-    margin: 0;
+  &__add-movies-to-list-button {
+    width: 50px;
+    height: 100%;
+    // overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: $c-red;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
   }
+
+  &__title {
+    font-size: 40px;
+    width: 100%;
+    background-color: $c-light-gray;
+    border-top: 4px solid $c-red;
+    border-right: 4px solid $c-red;
+    margin: 0;
+    padding-left: 20px;
+    margin-left: -20px;
+    padding-bottom: 5px;
+    border-radius: 0 20px 20px 0;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+
+    // &:active {
+    //   background-color: $c-red;
+    // }
+  }
+
+  // &__title-input {
+  //   font: inherit;
+  //   font-size: 40px;
+  //   opacity: 0;
+  //   display: block;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 20px;
+  //   right: 0;
+  //   // width: 100%;
+  //   outline: none;
+  //   border: none;
+  //   height: 100%;
+  //   box-sizing: border-box;
+  //   margin-left: -20px;
+  //   padding-bottom: 5px;
+  //   transition: all 0.1s ease;
+
+  //   &:focus {
+  //     box-shadow: inset 0 0px 10px rgba(0, 0, 0, 0.144);
+  //     opacity: 1;
+  //   }
+  // }
   
   &__description {
     color: $c-gray;
+    background-color: $c-light-gray;
     margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    margin-left: -20px;
     margin-bottom: 10px;
+    width: max-content;
+    font-size: 18px;
+    border-bottom: 4px solid $c-light-red;
+    // border-right: 4px solid $c-light-red;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 0 0 100px 0;
+
+    &:hover {
+      color: black;
+    }
   }
 
   &__select-section {
+    overflow: hidden;
     transform-origin: left;
     min-height: 100vh;
     background-color: $c-light-gray;
     border-left: 5px $c-red solid;
+    border-top: 4px $c-red solid;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.24);
   }
 
   &__list-option {
@@ -35,12 +111,52 @@
   }
 
   &__delete-button {
-    display: block;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
     width: max-content;
     padding: 1px 5px;
     border-radius: 5px;
-    background-color: $c-red;
-    color: #fff
+    background-color: transparent;
+    height: 30px;
+    border: 3px solid $c-red;
+    font-weight: bold;
+    transition: all 0.1s ease;
+    margin-right: 10px;
+    &:hover {
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.418);
+      transform: scale(120%);
+      background-color: $c-light-red;
+      color: #fff;
+    }
+    &:active {
+      transform: scale(110%);
+      background-color: $c-red;
+    }
+  }
+
+  &__clear-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: max-content;
+    padding: 1px 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    height: 30px;
+    border: 3px solid $c-blue;
+    font-weight: bold;
+    transition: all 0.1s ease;
+    &:hover {
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.418);
+      transform: scale(120%);
+      background-color: $c-light-blue;
+      color: #fff;
+    }
+    &:active {
+      transform: scale(110%);
+      background-color: $c-blue;
+    }
   }
 
   &__window {

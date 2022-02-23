@@ -6,8 +6,9 @@
   padding-bottom: 50%;
   border-right: 0px solid $c-red;
   border-left: 0px solid $c-red;
-
-  
+  border-top: 10px solid $c-red;;
+  border-top: 20px solid $c-red;;
+  border-bottom: 20px solid $c-red;
   
   &__img {
     // opacity: 0;
@@ -16,14 +17,24 @@
     position: absolute;
     height: 100%;
     width: 100%;
+    overflow: hidden;
     box-sizing: border-box;
     // height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: all 0.1s ease,  border 0.1s ease;
+    transition: all 0.5s ease,  border 0.1s ease;
+    border-top: 10px solid $c-light-red;;
+    border-bottom: 10px solid $c-light-red;
     &:hover {
-      border-right: 60px solid $c-red;
-      border-left: 60px solid $c-red;
+      // border-right: 60px solid $c-red;
+      transform: scale(140%) rotateZ(10deg);
+      // border-left: 60px solid $c-red;
+
+    }
+
+    @include onMobile() {
+      top: 0;
+      object-position: center;
     }
   }
 
@@ -31,7 +42,7 @@
     user-select: none;  
     font-size: 40px;
     display: block;
-    width: max-content;
+    width: 100%;
     height: max-content;
     position: absolute;
     transform: translateY(100%);
@@ -40,13 +51,14 @@
     left: 10%;
     right: 100%;
     // font-size: 30px;
-    color: blanchedalmond;
-    text-shadow: -2px 1px 0 black;
+    color: #fff;
+    text-shadow: -2px 1px 2px $c-red;
     // -webkit-text-stroke-width: 2px;
     // -webkit-text-stroke-color: black;
+    word-wrap: break-word;
     @include onMobile() {
-      font-size: 20px;
-      bottom: 20px;
+      font-size: 50px;
+      bottom: 15%;
     }
   }
 
@@ -84,5 +96,11 @@
     @include onMobile() {
       font-size: 20px;
     }
+  }
+  @include onMobile() {
+    margin: -20px 0;
+    padding: 0;
+    height: 100vh;
+    object-position: center;
   }
 }

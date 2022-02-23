@@ -40,8 +40,8 @@ export const Poster = ({moviesList}) => {
   return (
     <Swiper
       modules={[Navigation, Pagination, A11y, EffectCoverflow, Parallax]}
-      effect="coverflow"
-      spaceBetween={0}
+      // effect="coverflow"
+      spaceBetween={200}
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}

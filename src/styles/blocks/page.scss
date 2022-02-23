@@ -12,6 +12,11 @@
     margin: 0;
     margin-bottom: 30px;
     font-size: 40px;
+    position: relative;
+    border-left: 5px solid $c-red;
+    padding-left: 10px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #0000000c 10%, #9198e500);
   }
 
   &__section {

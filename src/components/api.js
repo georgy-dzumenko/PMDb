@@ -4,6 +4,10 @@ const api_key = "a1cacae9e097c731c0046cf30fa3b749";
 
 const language = localStorage.getItem('language')
 
+export const checkItemStatus = (media_id, session_id) => fetch(
+    `${BASE_URL}/movie/${media_id}/lists?api_key=${api_key}&session_id=${session_id}&language=${language}`,
+).then((response) => response.json())
+
 export const createList = (name, description, session_id) => fetch(
     `${BASE_URL}list?api_key=${api_key}&session_id=${session_id}`,
     {
@@ -19,18 +23,21 @@ export const createList = (name, description, session_id) => fetch(
     }    
 )
 
-export const removeMovieFromList = (list_id, movie_id, session_id) => fetch(
+export const removeMovieFromList = (list_id, media_id, session_id) => fetch(
     `${BASE_URL}list/${list_id}/remove_item?api_key=${api_key}&session_id=${session_id}`,
     {
         method: 'POST',
-        body: {
-            movie_id
-        }
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({
+            media_id
+        })
     }    
 )
 
 export const addMovieToList = (list_id, media_id, session_id) => fetch(
-    `https://api.themoviedb.org/3/list/${list_id}/add_item?api_key=${api_key}&session_id=${session_id}`,
+    `${BASE_URL}list/${list_id}/add_item?api_key=${api_key}&session_id=${session_id}`,
     {
         method: 'POST',
         headers: {
@@ -46,6 +53,12 @@ export const deleteList = (list_id, session_id) => fetch(
     `${BASE_URL}list/${list_id}?api_key=${api_key}&session_id=${session_id}`,
     {
         method: 'DELETE',
+    }    
+)
+export const clearList = (list_id, session_id) => fetch(
+    `${BASE_URL}list/${list_id}/clear?api_key=${api_key}&session_id=${session_id}&confirm=${true}`,
+    {
+        method: 'POST',
     }    
 )
 
@@ -173,7 +186,10 @@ export const getAccInfo = (sid) => fetch(`${BASE_URL}account?api_key=${api_key}&
     .then(response => response.json())
 
 export const getCredits = (id, movieType) => fetch(`${BASE_URL}${movieType}/${id}/credits?api_key=${api_key}&language=${language}`)
-    .then(response => response.json())
+    .then(response => {
+        console.log(`${BASE_URL}${movieType}/${id}/credits?api_key=${api_key}&language=${language}`)
+        return response.json()
+    })
     .then(data => data.cast)
 
 export const getTrailer = (id, movieType) => fetch(`${BASE_URL}${movieType}/${id}/videos?api_key=${api_key}&language=${language}`)
@@ -205,7 +221,7 @@ export const getReviews = (id, mediaType) => fetch(`${BASE_URL}${mediaType}/${id
     .then(response => response.json())
     .then(({results}) => results)
 
-export const findPerson = (query) => fetch(`${BASE_URL}search/person?api_key=${api_key}&query=${query}&language=${language}&include_image_language=${language},null`)
+export const findPerson = (query) => fetch(`${BASE_URL}search/person?api_key=${api_key}&query=${query}&language=${language}`)
     .then(response => response.json())
     .then(({results}) => results)
 
@@ -239,4 +255,4 @@ export const getCollection = (id) => fetch(`${BASE_URL}collection/${id}?api_key=
 
 export const getMovieImg = (img, w500 = false) => `https://image.tmdb.org/t/p/${w500 ? "w500" : 'original'}/${img}`
 
-export const getPersonImg = (img, w500 = false) => `https://image.tmdb.org/t/p/${w500 ? "w500" : 'original'}/${img}`
+export const getPersonImg = (img, w500 = false) => img ? `https://image.tmdb.org/t/p/${w500 ? "w500" : 'original'}/${img}` : 'guestAvatar.png'

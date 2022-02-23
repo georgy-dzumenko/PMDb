@@ -11,13 +11,13 @@ const classNames = require("classnames")
 
 export const NavigationSearch = () => {
   const [isActive, setActive] = useState(false);
-  const [results, setResluts] = useState([]);
+  const [results, setResults] = useState([]);
   const [text, setText] = useState("");
 
   const input = useRef('')
 
   const onSearch = useCallback(debounce((title) => {
-    getMoviesByTitle(title).then((data) => setResluts((data || []).slice(0, 7)))
+    getMoviesByTitle(title).then((data) => setResults((data || []).slice(0, 7)))
   }, 500), [])
 
   return (

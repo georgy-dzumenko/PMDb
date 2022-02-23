@@ -6,17 +6,20 @@ import reportWebVitals from './reportWebVitals';
 import { HashRouter as Router } from 'react-router-dom'
 import { createStore } from 'redux';
 import { rootReducer } from './redux/rootReducer';
+import { createHashHistory } from 'history';
 import { Provider } from 'react-redux';
 import { applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
+
+export const history = createHashHistory();
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <Router basename="/">
+      <Router basename="/" history={history}>
         <App />
       </Router>
     </React.StrictMode>

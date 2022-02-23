@@ -31,19 +31,22 @@ export const ListSelector = ({ id, name }) => {
   }, [match.params.listId])
 
   return (
-    <motion.div
-      animate={animation}
-      key={id}
-      className="lists-page__list-option"
-      onClick={() => {
-        if(window.location.href.includes(`${id}`)) {
-          history.push(`/lists`)
-          return;  
-        }
-        history.push(`/lists/${id}`)
-      }}
-    >
-      {name}
-    </motion.div>
+    <div style={{heigth: 'max-size', width: '100%'}}>
+      <motion.div
+        animate={animation}
+        exit={{translateX: '-100%', opacity: 0, translateDuration: 0.1}}
+        key={id}
+        className="lists-page__list-option"
+        onClick={() => {
+          if(window.location.href.includes(`${id}`)) {
+            history.push(`/lists`)
+            return;  
+          }
+          history.push(`/lists/${id}`)
+        }}
+      >
+        {name}
+      </motion.div>
+    </div>
   )
 }

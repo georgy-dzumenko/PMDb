@@ -98,13 +98,40 @@
     height: max-content;
     background-color: $c-light-red;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 10px 10px 0 0;
     font-weight: bold;
     font-size: 60px;
     margin: 0;
+    position: relative;
+    box-sizing: border-box;
+    word-wrap: normal;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background-color: $c-red;
+    }
 
     @include onMobile() {
+      font-size: 40px;
       border-radius: 0;
     }
+  }
+
+  &__media-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    background-color: $c-red;
+    right: 0;
+    border-radius: 0 0 10px 10px;
   }
 }

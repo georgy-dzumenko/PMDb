@@ -10,6 +10,7 @@ import MarkAsFavoriteButton from '../components/MarkAsFavoriteButton';
 import { Picture } from '../components/Picture';
 import AddToListButton from '../components/AddToListButton';
 import { translate } from '../components/translate';
+import { Review } from '../components/Review';
 
 const MoviePage = ({accInfo}) => {
   console.log('перейшов')
@@ -31,7 +32,7 @@ const MoviePage = ({accInfo}) => {
     getCrew(mediaId, mediaType).then((response) => { setCrew(response.reverse()) })
     getCredits(mediaId, mediaType).then((response) => { setCast(response.reverse()) })
     getMoviesById(mediaId, mediaType).then((response) => { setMovie(response) })
-    getSimilar(mediaId, mediaType).then((response) => { setSimilar(response) })
+    getSimilar(mediaId, mediaType).then((response) => { setSimilar(response.reverse()) })
     getReviews(mediaId, mediaType).then((response) => { setReviews(response) })
   }, [mediaId, mediaType])
 
@@ -61,8 +62,9 @@ const MoviePage = ({accInfo}) => {
                 transition={{ duration: 0.7}}
                 className="grid"
               >
-                <div key="poster" className="grid__item--1-12 page__title movie-page__title">
+                <div key="poster" className="grid__item--1-12 movie-page__title">
                   {movie?.title}
+                  <div className="movie-page__media-type">{movie.media_type}</div>
                 </div>
                 <div key="selected-movie-description" className="movie-page__votes grid__item--1-12">
                   rating: <span className="movie-page__votes-value">{movie?.vote_average}</span>
@@ -123,36 +125,21 @@ const MoviePage = ({accInfo}) => {
             </div>
           </section>
           <section className="page__section">
-            <div className="page__title">
-              {translate({
-                'en': "Reviews",
-                "uk": 'Відгуки'
-              })}
-            </div>
-              {
-                reviews.map((review) => (
-                    <div className="review">
-                      <div className="review__author">
-                        <img
-                          src={
-                            getMovieImg(review.author_details.avatar_path, true)
-                          }
-                          alt=""
-                          className="review__author-img"
-                        />
-                        <div className="review__author-nickname">
-                          {review.author_details.name}
-                        </div>
-                      </div>
-                      <div className="review__content">
-                        {review.content}
-                      </div>
-                      <div className="review__footer">
-                        {new Date(review.created_at).toLocaleString('default', { year: 'numeric', month: 'long' })}
-                      </div>
-                    </div>
-                ))
+            <div className="reviews-section">
+              {reviews.length > 0 &&
+                <div className="reviews-section__title">
+                  {translate({
+                    'en': "Reviews",
+                    "uk": 'Відгуки'
+                  })}
+                </div>
               }
+                {
+                  reviews.map((review) => (
+                      <Review review={review}/>
+                  ))
+                }
+            </div>
           </section>
           <section className="page__section">
             {cast.length > 0
@@ -168,6 +155,8 @@ const MoviePage = ({accInfo}) => {
                 </>
               : ''
             }
+          </section>
+          <section className="page__section">
             {crew.length > 0
               ?
                 <>

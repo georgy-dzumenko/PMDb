@@ -1,0 +1,264 @@
+.action-window {
+  overflow: hidden;
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  bottom: 50%;
+  right: 50%;
+  left: 50%;
+  width: 400px;
+  height: max-content;
+  border: 3px $c-light-gray solid;
+  border-radius: 10px;
+  background: rgba(228, 228, 228, 0.603);
+  backdrop-filter: blur(10px);
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.329);
+  transition: all 0.2s ease;
+
+  &--big {
+    width: 640px;
+  }
+
+  &--for-confirmation {
+    display: none;
+    &--active {
+      display: block;
+    }
+  }
+
+
+  &__search-container {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    height: 40px;
+    position: relative;
+  }
+
+  &__search {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 15px;
+    outline: none;
+    border: 3px solid $c-gray;
+    transition: all 0.1s ease;
+    font-size: large;
+    position: relative;
+
+    &:focus {
+      transform: scale(102%);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.205)
+    }
+  }
+
+  &__search-icon {
+    right: 15px;
+    top: 50%;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-end;
+    transition: all 1s ease;
+  }
+
+  &__search-results-block {
+    margin-top: 30px;
+    min-height: 50px;
+    max-height: 300px;
+    padding-top: 25px;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 2px solid $c-gray;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+     
+    &::-webkit-scrollbar-track {
+      background-color: $c-light-gray;
+    }
+     
+    &::-webkit-scrollbar-thumb {
+      background-color: $c-gray;
+      border-radius: 2px;
+    }
+  }
+
+  &__default-result {
+    display: block;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.39)
+  }
+
+  &__search-result {
+    box-sizing: border-box;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    height: 200px;
+    width: max-content;
+    position: relative;
+    object-fit: cover;
+  }
+
+  &__search-result-add-button {
+    box-sizing: border-box;
+    transform-origin: bottom;
+    background-color: rgba(255, 255, 255, 0.603);
+    backdrop-filter: blur(3px);
+    height: 60px;
+    cursor: pointer;
+    border: 3px solid $c-red;
+    display: flex;
+    position: absolute;
+    color: $c-red;
+    font-weight: bold;
+    font-size: 20px;
+    bottom: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s ease;
+
+    &:hover {
+      background-color: $c-red;
+      color: white
+    }
+  }
+
+  &__input {
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 35px;
+    font-size: 17px;
+    border: 2px solid white;
+  }
+
+  &__create-list-button {
+    display: block;
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    top: 5px;
+    left: 5px;
+    transition: all 0.1s ease;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $c-red;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      transform: scale(110%);
+      &::after {
+        transform: scale(110%);
+        height: 3px;
+      }
+    }
+  }
+
+  &__header {
+    display: block;
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    border-bottom: 2px solid $c-gray;
+  }
+
+  &__content {
+    padding: 10px 10px;
+  }
+
+  &__title {
+    font-size: 25px;
+    width: max-content;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__list-element {
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    font-size: large;
+    height: 30px;
+    border: 2px solid $c-gray;
+    background-color: white;
+    transition: all 0.1s ease;
+    &:hover {
+      transform: scale(105%);
+      background-color: $c-light-gray;
+    }
+  }
+
+  &__submit-button {
+    display: block;
+    height: 30px;
+    width: 150px;
+    color: #000;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 2px solid $c-green;
+    margin: 0 auto;
+    outline: none;
+    transition: all 0.1s ease;
+    cursor: pointer;
+    &:hover {
+      transform: scale(110%);
+      background-color: $c-light-green;
+      color: #fff
+    }
+
+    &:active {
+      transform: scale(100%);
+      background-color: $c-green;
+      color: #fff
+    }
+  }
+
+  &__close-button {
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background-image: url(../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/times.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.1s all ease;
+    border-radius: 50%;
+
+    &:hover {
+      transform: scale(110%);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.267);
+    }
+  }
+}
